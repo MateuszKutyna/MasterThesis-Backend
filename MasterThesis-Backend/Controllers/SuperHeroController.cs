@@ -7,30 +7,77 @@ namespace MasterThesis_Backend.Controllers
     [ApiController]
     public class SuperHeroController : ControllerBase
     {
-        private static List<SuperHero> heroes = new List<SuperHero>
-            {
-                new SuperHero{
-                    Id = 1,
-                    Name = "Hulk",
-                    FirstName = "Bruce",
-                    LastName = "Banner",
-                    Place="New York City"
-                }
-            };
+
+        private readonly DataContext dataContext;
+
+        public SuperHeroController(DataContext dataContext)
+        {
+            this.dataContext = dataContext;
+        }
+
+
 
         [HttpGet("allHeroes")]
         public async Task<ActionResult<List<SuperHero>>> Get()
         {
             
-            return Ok(heroes);
+            return Ok(await dataContext.SuperHeroes.ToListAsync());
 
         }
 
-        [HttpPost("editHeroes")]
+        [HttpPost("addHero")]
         public async Task<ActionResult<List<SuperHero>>> AddHero(SuperHero hero)
         {
-            heroes.Add(hero);
-            return Ok(heroes); 
+            dataContext.SuperHeroes.Add(hero);
+            await dataContext.SaveChangesAsync();
+
+            return Ok(await dataContext.SuperHeroes.ToListAsync()); 
+        }
+
+        [HttpGet("getHero")]
+        public async Task<ActionResult<SuperHero>> GetHero(int id)
+        {
+            var hero = await dataContext.SuperHeroes.FindAsync(id);
+            if (hero == null)
+            {
+                return BadRequest("No hero found");
+            }
+            return Ok(hero);
+        }
+
+        [HttpPut("editHero")]
+        public async Task<ActionResult<List<SuperHero>>> EditHero(SuperHero hero)
+        {
+            var foundHero = await dataContext.SuperHeroes.FindAsync(hero.Id);
+            if (foundHero == null) {
+                return BadRequest("No hero found");
+            }
+
+            foundHero.Name = hero.Name;
+            foundHero.FirstName = hero.FirstName;
+            foundHero.LastName = hero.LastName; 
+            foundHero.Place = hero.Place;
+
+            await dataContext.SaveChangesAsync();
+            return Ok(await dataContext.SuperHeroes.ToListAsync());
+
+        }
+
+        [HttpDelete("removeHero")]
+        public async Task<ActionResult<List<SuperHero>>> removeHero(int id)
+        {
+            var foundHero = await dataContext.SuperHeroes.FindAsync(id);
+            if (foundHero == null)
+            {
+                return BadRequest("Invalid Hero ID");
+            }
+
+            dataContext.SuperHeroes.Remove(foundHero);
+            await dataContext.SaveChangesAsync();
+           
+
+            return Ok(await dataContext.SuperHeroes.ToListAsync());
+
         }
 
     }

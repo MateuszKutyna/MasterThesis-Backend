@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mateusz\\Desktop\\.NetProject\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj": {}
+    "C:\\Users\\Mateusz\\Desktop\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mateusz\\Desktop\\.NetProject\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj": {
+    "C:\\Users\\Mateusz\\Desktop\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mateusz\\Desktop\\.NetProject\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj",
+        "projectUniqueName": "C:\\Users\\Mateusz\\Desktop\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj",
         "projectName": "MasterThesis-Backend",
-        "projectPath": "C:\\Users\\Mateusz\\Desktop\\.NetProject\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj",
+        "projectPath": "C:\\Users\\Mateusz\\Desktop\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj",
         "packagesPath": "C:\\Users\\Mateusz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mateusz\\Desktop\\.NetProject\\MasterThesis-Backend\\MasterThesis-Backend\\obj\\",
+        "outputPath": "C:\\Users\\Mateusz\\Desktop\\MasterThesis-Backend\\MasterThesis-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mateusz\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
