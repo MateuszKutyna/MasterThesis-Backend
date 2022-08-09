@@ -21,7 +21,7 @@ namespace MasterThesis_Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MasterThesis_Backend.SuperHero", b =>
+            modelBuilder.Entity("MasterThesis_Backend.Steel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,25 +29,26 @@ namespace MasterThesis_Backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("FirstName")
+                    b.Property<int>("CastingType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Instruction")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("SteelGrade")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("maxAmountOfCasting")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Place")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("waitTime")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("SuperHeroes");
+                    b.ToTable("Steels");
                 });
 #pragma warning restore 612, 618
         }

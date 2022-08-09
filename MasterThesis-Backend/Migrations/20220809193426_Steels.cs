@@ -4,31 +4,32 @@
 
 namespace MasterThesis_Backend.Migrations
 {
-    public partial class CreateInitial : Migration
+    public partial class Steels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "SuperHeroes",
+                name: "Steels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Place = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    SteelGrade = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Instruction = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CastingType = table.Column<int>(type: "int", nullable: false),
+                    maxAmountOfCasting = table.Column<int>(type: "int", nullable: false),
+                    waitTime = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SuperHeroes", x => x.Id);
+                    table.PrimaryKey("PK_Steels", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "SuperHeroes");
+                name: "Steels");
         }
     }
 }

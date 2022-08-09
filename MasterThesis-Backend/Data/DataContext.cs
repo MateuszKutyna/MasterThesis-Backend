@@ -6,6 +6,6 @@ namespace MasterThesis_Backend.Data
     {
         public DataContext(DbContextOptions<DataContext> options): base(options) { }
 
-        public DbSet<SuperHero> SuperHeroes { get; set; }
+        public DbSet<Steel> Steels { get; set; }
     }
 }
