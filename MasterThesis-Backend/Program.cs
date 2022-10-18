@@ -2,11 +2,9 @@
 //For entire project is visible
 global using MasterThesis_Backend.Data;
 global using Microsoft.EntityFrameworkCore;
+using MasterThesis_Backend.Services;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
-
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,11 +18,17 @@ builder.Services.AddCors(options =>
         policy.WithOrigins("http://example.com", "http://www.contoso.com").AllowAnyHeader().AllowAnyOrigin();
     });
 });
+
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
+builder.Services.AddScoped<ISteelService, SteelService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<ISteelConnectionsService, SteelConnectionsService>();
+builder.Services.AddScoped<IScheduleOrdersService, ScheduleOrdersService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

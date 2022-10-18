@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ksSXR2KV7+rdyC0f9ncnHq0bHYHm3OIxtnKIcRMUMdZckte59x87yY/9SgEsSqgQ2jyea62mDJWmQX92Ga6Htg==",
+  "dgSpecHash": "MwrG10WXdT6OW9w04C1u18tidOo0fnkiXxdG+LthHVqK1o+BE1OGWwjZU7oRKunseQzWkXL/J0w67omniaSxwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mateusz\\Desktop\\MasterThesis-Backend\\MasterThesis-Backend\\MasterThesis-Backend.csproj",
   "expectedPackageFiles": [
@@ -34,6 +34,10 @@
     "C:\\Users\\Mateusz\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Mateusz\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Mateusz\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Mateusz\\.nuget\\packages\\nrules\\0.9.3\\nrules.0.9.3.nupkg.sha512",
+    "C:\\Users\\Mateusz\\.nuget\\packages\\nrules.fluent\\0.9.3\\nrules.fluent.0.9.3.nupkg.sha512",
+    "C:\\Users\\Mateusz\\.nuget\\packages\\nrules.rulemodel\\0.9.3\\nrules.rulemodel.0.9.3.nupkg.sha512",
+    "C:\\Users\\Mateusz\\.nuget\\packages\\nrules.runtime\\0.9.3\\nrules.runtime.0.9.3.nupkg.sha512",
     "C:\\Users\\Mateusz\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Mateusz\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Mateusz\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

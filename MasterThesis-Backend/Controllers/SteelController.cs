@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using MasterThesis_Backend.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc; //ControllerBase
 
 namespace MasterThesis_Backend.Controllers
 {
@@ -7,23 +8,23 @@ namespace MasterThesis_Backend.Controllers
     [ApiController]
     public class SteelController : ControllerBase
     {
-        private readonly DataContext _dataContext;
+        private readonly ISteelService _steelService;
 
-        public SteelController(DataContext dataContext)
+        public SteelController(ISteelService steelService)
         {
-            this._dataContext = dataContext;
+            _steelService = steelService;
+        }
+        
+        [HttpGet("GetAllSteels")]
+        public async Task<ActionResult<List<Steel>>> GetAllSteels()
+        {
+            return Ok(await _steelService.GetAllSteels());
         }
 
-        [HttpGet("getSteels")]
-        public async Task<ActionResult<List<Steel>>> GetSteels()
-        {
-            return Ok(await _dataContext.Steels.ToListAsync());
-        }
-
-        [HttpGet("getSteelById")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Steel>> GetSteelById(int id)
         {
-            var steel = await _dataContext.Steels.FindAsync(id);
+            var steel = await _steelService.GetSteelById(id);
             if(steel == null)
             {
                 return BadRequest("Steal not found");
@@ -31,14 +32,10 @@ namespace MasterThesis_Backend.Controllers
             return Ok(steel);
         }
 
-        [HttpPost("addSteel")]
-        public async Task<ActionResult<List<Steel>>> AddSteel(Steel steal)
+        [HttpPost("AddSteel")]
+        public async Task<ActionResult<List<Steel>>> AddSteel(Steel steel)
         {
-           
-            _dataContext.Steels.Add(steal);
-            await _dataContext.SaveChangesAsync();
-
-            return Ok(await _dataContext.Steels.ToListAsync());
+            return Ok(await _steelService.AddSteel(steel));
         }
 
         
