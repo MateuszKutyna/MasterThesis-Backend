@@ -19,6 +19,15 @@ namespace MasterThesis_Backend.Services
             return await _dataContext.Steels.ToListAsync();
         }
 
+        public async Task<Steel?> DeleteSteel(int id)
+        {
+           var steel = await _dataContext.Steels.FindAsync(id);
+            if (steel == null) return null;
+            _dataContext.Steels.Remove(steel);
+            await _dataContext.SaveChangesAsync();
+            return steel;
+        }
+
         public async Task<List<Steel>> GetAllSteels()
         {
             return await _dataContext.Steels.ToListAsync();

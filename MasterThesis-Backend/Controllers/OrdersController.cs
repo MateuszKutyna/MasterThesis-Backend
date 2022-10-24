@@ -20,7 +20,7 @@ namespace MasterThesis_Backend.Controllers
             return Ok(orderService.GetAllOrders());
         }
 
-        [HttpDelete("DeleteOrder")]
+        [HttpDelete("{steelGrade}")]
         public ActionResult<Order> DeleteOrder(string steelGrade)
         {
             var deletedOrder = orderService.DeleteOrder(steelGrade);

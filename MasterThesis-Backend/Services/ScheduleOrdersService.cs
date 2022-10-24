@@ -18,10 +18,15 @@ namespace MasterThesis_Backend.Services
             schedule.Orders = new List<Order>();
         }
 
+        public Schedule GetSchedule()
+        {
+            return schedule;
+        }
+
         public Schedule ScheduleOrders()
         {
             
-            var orders = orderService.GetAllOrders();
+            var orders = orderService.GetAllOrders().Select(a=> (Order)a.Clone()).ToList();
             var steelConnections = steelConnectionsService.GetSteelConnections();
             if (orders == null || orders.Count == 0)
                 return schedule;
@@ -43,5 +48,6 @@ namespace MasterThesis_Backend.Services
 
             return schedule;
         }
+
     }
 }

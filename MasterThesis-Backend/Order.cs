@@ -16,5 +16,10 @@ namespace MasterThesis_Backend
         public int Tonnage { get; set; }
         public ConnectionType? ConnectionType { get; set; } = null;
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
     }
 }

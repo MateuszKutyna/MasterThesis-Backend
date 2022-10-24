@@ -27,7 +27,7 @@ namespace MasterThesis_Backend.Controllers
             var steel = await _steelService.GetSteelById(id);
             if(steel == null)
             {
-                return BadRequest("Steal not found");
+                return BadRequest("Steel not found");
             }
             return Ok(steel);
         }
@@ -38,6 +38,16 @@ namespace MasterThesis_Backend.Controllers
             return Ok(await _steelService.AddSteel(steel));
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Steel>> DeleteSteel(int id)
+        {
+            var steel = await _steelService.DeleteSteel(id);
+            if(steel == null)
+            {
+                return BadRequest("Steel not found");
+            }
+            return Ok(steel);
+        }
         
     }
 }

@@ -4,5 +4,7 @@
     {
         Schedule ScheduleOrders();
         void ClearSchedule();
+
+        Schedule GetSchedule();
     }
 }

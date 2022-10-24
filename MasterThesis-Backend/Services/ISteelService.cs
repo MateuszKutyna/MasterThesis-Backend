@@ -5,6 +5,6 @@
         Task<List<Steel>> GetAllSteels();
         Task<Steel?> GetSteelById(int id);
         Task<List<Steel>> AddSteel(Steel steel);
-
+        Task<Steel?> DeleteSteel(int id);
     }
 }

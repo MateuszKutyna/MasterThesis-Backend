@@ -27,5 +27,11 @@ namespace MasterThesis_Backend.Controllers
             return Ok("Schedule cleared");
         }
 
+        [HttpGet("GetSchedule")]
+        public ActionResult<Schedule> GetSchedule()
+        {
+            return Ok(scheduleOrders.GetSchedule());
+        }
+
     }
 }

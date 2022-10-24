@@ -8,8 +8,9 @@
 
         public string SteelGrade { get; set; } = string.Empty;
 
-        public Steel(string steelName, string steelGrade)
+        public Steel(int id, string steelName, string steelGrade)
         {
+            Id = id;
             SteelName = steelName;
             SteelGrade = steelGrade;
         }
